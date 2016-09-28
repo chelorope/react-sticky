@@ -344,6 +344,16 @@ describe('Sticky component', function() {
       });
     });
 
+    describe('wrapperStyle', () => {
+
+      it('applies the given wrapperStyles', () => {
+        mountSticky(<Sticky className="handle" wrapperStyle={{height: 100, opacity: 0.5}}>Test</Sticky>);
+
+        expect(ReactDOM.findDOMNode(this.sticky).style.height).to.equal('100px');
+        expect(ReactDOM.findDOMNode(this.sticky).style.opacity).to.equal('0.5');
+      });
+    });
+
     describe('stickyStyle', () => {
       it('applies if the component is sticky', () => {
         mountSticky(<Sticky className="handle" stickyStyle={{height: 200}}>Test</Sticky>);
